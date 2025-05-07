@@ -1,0 +1,988 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "The One Ring API",
+    "description": "This API provides access to data from J.R.R. Tolkien's The Lord of the Rings books and their film adaptations.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "The One Ring API Team",
+      "url": "https://the-one-api.dev/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://the-one-api.dev/v2"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/book": {
+      "get": {
+        "summary": "Get all books",
+        "operationId": "getBooks",
+        "description": "Returns all books from The Lord of the Rings.",
+        "tags": [
+          "book"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/sortParam"
+          },
+          {
+            "$ref": "#/components/parameters/orderParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterIdParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterNameParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of books.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/book/{id}": {
+      "get": {
+        "summary": "Get a single book by ID",
+        "operationId": "getBookById",
+        "description": "Returns a single book based on its unique identifier.",
+        "tags": [
+          "book"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The book object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BookResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Book not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/character": {
+      "get": {
+        "summary": "Get all characters",
+        "operationId": "getCharacters",
+        "description": "Returns all characters from The Lord of the Rings.",
+        "tags": [
+          "character"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/sortParam"
+          },
+          {
+            "$ref": "#/components/parameters/orderParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterIdParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterNameParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterRaceParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterGenderParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterBirthParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterDeathParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterRealmParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterHairParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterHeightParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterSpouseParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of characters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CharacterListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/character/{id}": {
+      "get": {
+        "summary": "Get a single character by ID",
+        "operationId": "getCharacterById",
+        "description": "Returns a single character based on their unique identifier.",
+        "tags": [
+          "character"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The character object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CharacterResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movie": {
+      "get": {
+        "summary": "Get all movies",
+        "operationId": "getMovies",
+        "description": "Returns all movies from The Lord of the Rings.",
+        "tags": [
+          "movie"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/movieSortParam"
+          },
+          {
+            "$ref": "#/components/parameters/orderParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterIdParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterNameParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterRuntimeInMinutesParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterBudgetInMillionsParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterBoxOfficeRevenueInMillionsParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterAcademyAwardNominationsParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterAcademyAwardWinsParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterRottenTomatoesScoreParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of movies.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/movie/{id}": {
+      "get": {
+        "summary": "Get a single movie by ID",
+        "operationId": "getMovieById",
+        "description": "Returns a single movie based on its unique identifier.",
+        "tags": [
+          "movie"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The movie object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MovieResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quote": {
+      "get": {
+        "summary": "Get all quotes",
+        "operationId": "getQuotes",
+        "description": "Returns all quotes from The Lord of the Rings.",
+        "tags": [
+          "quote"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pageParam"
+          },
+          {
+            "$ref": "#/components/parameters/limitParam"
+          },
+          {
+            "$ref": "#/components/parameters/offsetParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterIdParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterDialogParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterMovieParam"
+          },
+          {
+            "$ref": "#/components/parameters/filterCharacterParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of quotes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/quote/{id}": {
+      "get": {
+        "summary": "Get a single quote by ID",
+        "operationId": "getQuoteById",
+        "description": "Returns a single quote based on its unique identifier.",
+        "tags": [
+          "quote"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/idPathParam"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The quote object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QuoteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Quote not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Book": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "id",
+            "description": "The unique identifier of the book (string)."
+          },
+          "name": {
+            "type": "name",
+            "description": "The name of the book (string)."
+          }
+        }
+      },
+      "BookResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Book_"
+            }
+          }
+        }
+      },
+      "BookListResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Book"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "Total number of documents."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of documents per page."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Starting offset."
+          },
+          "page": {
+            "type": "int",
+            "description": "Current page number."
+          },
+          "pages": {
+            "type": "integer",
+            "description": "Total number of pages."
+          }
+        }
+      },
+      "Character": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "The unique identifier of the character."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the character."
+          },
+          "race": {
+            "type": "string",
+            "description": "The race of the character."
+          },
+          "gender": {
+            "type": "string",
+            "description": "The gender of the character."
+          },
+          "birth": {
+            "type": "string",
+            "description": "The birth date of the character."
+          },
+          "death": {
+            "type": "string",
+            "description": "The death date of the character."
+          },
+          "realm": {
+            "type": "string",
+            "description": "The realm of the character."
+          },
+          "spouse": {
+            "type": "string",
+            "description": "The spouse of the character."
+          }
+        }
+      },
+      "CharacterResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Character"
+            }
+          }
+        }
+      },
+      "CharacterListResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Character"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "Total number of documents."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of documents per page."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Starting offset."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "pages": {
+            "type": "pages",
+            "description": "Total number of pages."
+          }
+        }
+      },
+      "Movie": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "The unique identifier of the movie."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the movie."
+          },
+          "runtimeInMinutes": {
+            "type": "integer",
+            "description": "The runtime of the movie in minutes."
+          },
+          "budgetInMillions": {
+            "type": "number",
+            "description": "The budget of the movie in millions of dollars."
+          },
+          "boxOfficeRevenueInMillions": {
+            "type": "number",
+            "description": "The box office revenue of the movie in millions of dollars."
+          },
+          "academyAwardNominations": {
+            "type": "integer",
+            "description": "The number of Academy Award nominations for the movie."
+          },
+          "academyAwardWins": {
+            "type": "integer",
+            "description": "The number of Academy Award wins for the movie."
+          },
+          "rottenTomatoesScore": {
+            "type": "number",
+            "description": "The Rotten Tomatoes score of the movie."
+          }
+        }
+      },
+      "MovieResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "arrayz",
+            "items": {
+              "$ref": "#/components/schemas/Movie"
+            }
+          }
+        }
+      },
+      "MovieListResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Movie"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "Total number of documents."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of documents per page."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Starting offset."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "pages": {
+            "type": "integer",
+            "description": "Total number of pages."
+          }
+        }
+      },
+      "Quote": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "string",
+            "description": "The unique identifier of the quote."
+          },
+          "dialog": {
+            "type": "string",
+            "description": "The dialog text of the quote."
+          },
+          "movie": {
+            "type": "string",
+            "description": "The movie ID associated with the quote."
+          },
+          "character": {
+            "type": "string",
+            "description": "The character ID associated with the quote."
+          }
+        }
+      },
+      "QuoteResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Quote"
+            }
+          }
+        }
+      },
+      "QuoteListResponse": {
+        "type": "object",
+        "properties": {
+          "docs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Quote"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "description": "Total number of documents."
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Maximum number of documents per page."
+          },
+          "offset": {
+            "type": "integer",
+            "description": "Starting offset."
+          },
+          "page": {
+            "type": "integer",
+            "description": "Current page number."
+          },
+          "pages": {
+            "type": "integer",
+            "description": "Total number of pages."
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Error message."
+          }
+        }
+      }
+    },
+    "parameters": {
+      "pageParam": {
+        "in": "query",
+        "name": "page",
+        "schema": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "description": "The page number to retrieve."
+      },
+      "limitParam": {
+        "in": "query",
+        "name": "limit",
+        "schema": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000
+        },
+        "description": "The maximum number of items to return per page."
+      },
+      "offsetParam": {
+        "in": "query",
+        "name": "offset",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "description": "The offset from the start of the collection to return."
+      },
+      "sortParam": {
+        "in": "query",
+        "name": "sort",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "id",
+            "name"
+          ]
+        },
+        "description": "Sort the results by a specific field."
+      },
+      "orderParam": {
+        "in": "query",
+        "name": "order",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "asc",
+            "desc"
+          ]
+        },
+        "description": "The order in which to sort results (asc or desc)."
+      },
+      "filterIdParam": {
+        "in": "query",
+        "name": "_id",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by ID."
+      },
+      "filterNameParam": {
+        "in": "query",
+        "name": "name",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by name."
+      },
+      "filterRaceParam": {
+        "in": "query",
+        "name": "race",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character race."
+      },
+      "filterGenderParam": {
+        "in": "query",
+        "name": "gender",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character gender."
+      },
+      "filterBirthParam": {
+        "in": "query",
+        "name": "birth",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character birth date."
+      },
+      "filterDeathParam": {
+        "in": "query",
+        "name": "death",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character death date."
+      },
+      "filterRealmParam": {
+        "in": "query",
+        "name": "realm",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character realm."
+      },
+      "filterHairParam": {
+        "in": "query",
+        "name": "hair",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character hair."
+      },
+      "filterHeightParam": {
+        "in": "query",
+        "name": "height",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character height."
+      },
+      "filterSpouseParam": {
+        "in": "query",
+        "name": "spouse",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by character spouse."
+      },
+      "filterRuntimeInMinutesParam": {
+        "in": "query",
+        "name": "runtimeInMinutes",
+        "schema": {
+          "type": "integer"
+        },
+        "description": "Filter by movie runtime."
+      },
+      "filterBudgetInMillionsParam": {
+        "in": "query",
+        "name": "budgetInMillions",
+        "schema": {
+          "type": "number"
+        },
+        "description": "Filter by movie budget."
+      },
+      "filterBoxOfficeRevenueInMillionsParam": {
+        "in": "query",
+        "name": "boxOfficeRevenueInMillions",
+        "schema": {
+          "type": "number"
+        },
+        "description": "Filter by movie box office revenue."
+      },
+      "filterAcademyAwardNominationsParam": {
+        "in": "query",
+        "name": "academyAwardNominations",
+        "schema": {
+          "type": "integer"
+        },
+        "description": "Filter by movie academy award nominations."
+      },
+      "filterAcademyAwardWinsParam": {
+        "in": "query",
+        "name": "academyAwardWins",
+        "schema": {
+          "type": "integer"
+        },
+        "description": "Filter by movie academy award wins."
+      },
+      "filterRottenTomatoesScoreParam": {
+        "in": "query",
+        "name": "rottenTomatoesScore",
+        "schema": {
+          "type": "number"
+        },
+        "description": "Filter by movie rotten tomatoes score."
+      },
+      "movieSortParam": {
+        "in": "query",
+        "name": "sort",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "id",
+            "name",
+            "releaseYear"
+          ]
+        },
+        "description": "Sort the results by a specific field."
+      },
+      "filterDialogParam": {
+        "in": "query",
+        "name": "dialog",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by quote dialog."
+      },
+      "filterMovieParam": {
+        "in": "query",
+        "name": "movie",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by quote movie ID."
+      },
+      "filterCharacterParam": {
+        "in": "query",
+        "name": "character",
+        "schema": {
+          "type": "string"
+        },
+        "description": "Filter by quote character ID."
+      },
+      "idPathParam": {
+        "in": "path",
+        "name": "id",
+        "required": true,
+        "schema": {
+          "type": "string"
+        },
+        "description": "The unique identifier of the item to retrieve."
+      }
+    },
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
