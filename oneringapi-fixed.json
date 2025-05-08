@@ -482,7 +482,7 @@
           "docs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Book_"
+              "$ref": "#/components/schemas/Book"
             }
           }
         }
