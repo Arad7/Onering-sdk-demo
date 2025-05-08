@@ -467,11 +467,11 @@
         "type": "object",
         "properties": {
           "_id": {
-            "type": "id",
+            "type": "string",
             "description": "The unique identifier of the book (string)."
           },
           "name": {
-            "type": "name",
+            "type": "string",
             "description": "The name of the book (string)."
           }
         }
@@ -509,7 +509,7 @@
             "description": "Starting offset."
           },
           "page": {
-            "type": "int",
+            "type": "integer",
             "description": "Current page number."
           },
           "pages": {
@@ -592,7 +592,7 @@
             "description": "Current page number."
           },
           "pages": {
-            "type": "pages",
+            "type": "integer",
             "description": "Total number of pages."
           }
         }
@@ -638,7 +638,7 @@
         "type": "object",
         "properties": {
           "docs": {
-            "type": "arrayz",
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/Movie"
             }
