@@ -1,0 +1,228 @@
+{
+  "liblabVersion": "2.25.14",
+  "date": "2025-05-08T01:02:42.502Z",
+  "config": {
+    "apiId": 2154,
+    "sdkName": "one-ring-sdk",
+    "sdkVersion": "1.0.0",
+    "languages": ["python"],
+    "auth": ["bearer"],
+    "liblabVersion": "2",
+    "deliveryMethods": ["zip"],
+    "rawConfig": {
+      "sdkName": "one-ring-sdk",
+      "apiVersion": "1.0.0",
+      "apiName": "one-ring-sdk-api",
+      "specFilePath": "oneringapi-fixed.json",
+      "languages": ["python"],
+      "auth": ["bearer"],
+      "customizations": {
+        "includeOptionalSnippetParameters": true,
+        "authentication": {
+          "access": {
+            "prefix": "Bearer"
+          }
+        },
+        "devContainer": true,
+        "generateEnv": true,
+        "inferServiceNames": false,
+        "injectedModels": [],
+        "license": {
+          "type": "MIT"
+        },
+        "responseHeaders": false,
+        "retry": {
+          "enabled": true,
+          "maxAttempts": 3,
+          "retryDelay": 150
+        }
+      },
+      "generateMCP": false,
+      "languageOptions": {
+        "python": {
+          "alwaysInitializeOptionals": false,
+          "pypiPackageName": "",
+          "githubRepoName": "",
+          "ignoreFiles": [],
+          "sdkVersion": "1.0.0",
+          "liblabVersion": "2"
+        }
+      },
+      "publishing": {
+        "githubOrg": ""
+      }
+    },
+    "apiVersion": "1.0.0",
+    "apiName": "one-ring-sdk-api",
+    "specFilePath": "oneringapi-fixed.json",
+    "languageOptions": {
+      "python": {
+        "alwaysInitializeOptionals": false,
+        "pypiPackageName": "",
+        "githubRepoName": "",
+        "ignoreFiles": [],
+        "liblabVersion": "2",
+        "sdkVersion": "1.0.0"
+      }
+    },
+    "generateMCP": false,
+    "publishing": {
+      "githubOrg": ""
+    },
+    "authentication": {
+      "access": {
+        "prefix": "Bearer"
+      }
+    },
+    "devContainer": true,
+    "generateEnv": true,
+    "includeOptionalSnippetParameters": true,
+    "inferServiceNames": false,
+    "injectedModels": [],
+    "license": {
+      "type": "MIT",
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT",
+      "path": "MIT.ejs"
+    },
+    "responseHeaders": false,
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "retryDelay": 150,
+      "maxDelay": 5000,
+      "retryDelayJitter": 50,
+      "backOffFactor": 2,
+      "httpCodesToRetry": [408, 429, 500, 502, 503, 504],
+      "httpMethodsToRetry": ["GET", "POST", "PUT", "DELETE", "PATCH", "HEAD", "OPTIONS"]
+    },
+    "multiTenant": true,
+    "includeWatermark": true,
+    "alwaysInitializeOptionals": false,
+    "pypiPackageName": "",
+    "githubRepoName": "",
+    "ignoreFiles": [],
+    "language": "python",
+    "deliveryMethod": "zip",
+    "hooks": {
+      "enabled": false,
+      "sourceDir": ""
+    },
+    "usesFormData": false,
+    "environmentVariables": [],
+    "fileOutput": "/tmp",
+    "httpLibrary": {
+      "name": "axios",
+      "packages": {
+        "axios": "^1.7.9"
+      },
+      "languages": ["typescript"]
+    },
+    "customQueries": {
+      "paths": [],
+      "rawQueries": [],
+      "queriesData": []
+    },
+    "ai": false,
+    "specType": "openapi"
+  },
+  "files": [
+    "src/one_ring_sdk/models/utils/base_model.py",
+    "src/one_ring_sdk/models/utils/json_map.py",
+    "src/one_ring_sdk/models/__init__.py",
+    "src/one_ring_sdk/services/__init__.py",
+    "src/one_ring_sdk/services/utils/__init__.py",
+    "src/one_ring_sdk/__init__.py",
+    "src/one_ring_sdk/net/__init__.py",
+    "src/one_ring_sdk/net/headers/__init__.py",
+    "src/one_ring_sdk/net/transport/__init__.py",
+    "src/one_ring_sdk/hooks/__init__.py",
+    "src/one_ring_sdk/net/environment/__init__.py",
+    "src/one_ring_sdk/net/request_chain/__init__.py",
+    "src/one_ring_sdk/net/request_chain/handlers/__init__.py",
+    "src/one_ring_sdk/models/utils/__init__.py",
+    "src/one_ring_sdk/services/async_/__init__.py",
+    "src/one_ring_sdk/services/async_/utils/__init__.py",
+    "src/one_ring_sdk/net/transport/request.py",
+    "src/one_ring_sdk/net/transport/response.py",
+    "src/one_ring_sdk/net/transport/api_error.py",
+    "src/one_ring_sdk/net/transport/request_error.py",
+    "src/one_ring_sdk/sdk.py",
+    "src/one_ring_sdk/net/transport/serializer.py",
+    "src/one_ring_sdk/services/utils/validator.py",
+    "src/one_ring_sdk/services/utils/base_service.py",
+    "pyproject.toml",
+    ".gitignore",
+    "src/one_ring_sdk/models/utils/cast_models.py",
+    "src/one_ring_sdk/net/transport/utils.py",
+    "src/one_ring_sdk/hooks/hook.py",
+    "install.sh",
+    "install.cmd",
+    "examples/install.sh",
+    "examples/install.cmd",
+    "src/one_ring_sdk/net/headers/base_header.py",
+    "src/one_ring_sdk/net/headers/access_token_auth.py",
+    "src/one_ring_sdk/net/environment/environment.py",
+    "src/one_ring_sdk/net/request_chain/request_chain.py",
+    "src/one_ring_sdk/net/request_chain/handlers/base_handler.py",
+    "src/one_ring_sdk/net/request_chain/handlers/http_handler.py",
+    "src/one_ring_sdk/net/request_chain/handlers/hook_handler.py",
+    "src/one_ring_sdk/net/request_chain/handlers/retry_handler.py",
+    "examples/sample.py",
+    ".env.example",
+    "/examples/.env.example",
+    "src/one_ring_sdk/services/utils/default_headers.py",
+    "./LICENSE",
+    ".devcontainer/devcontainer.json",
+    "documentation/models/BookListResponse.md",
+    "documentation/models/GetBooksSort.md",
+    "documentation/models/Order.md",
+    "documentation/models/BookResponse.md",
+    "documentation/models/CharacterListResponse.md",
+    "documentation/models/CharacterResponse.md",
+    "documentation/models/MovieListResponse.md",
+    "documentation/models/GetMoviesSort.md",
+    "documentation/models/MovieResponse.md",
+    "documentation/models/QuoteListResponse.md",
+    "documentation/models/QuoteResponse.md",
+    "documentation/models/Book.md",
+    "documentation/models/Character.md",
+    "documentation/models/Movie.md",
+    "documentation/models/Quote.md",
+    "documentation/models/Error.md",
+    "src/one_ring_sdk/models/utils/one_of_base_model.py",
+    "src/one_ring_sdk/services/async_/utils/to_async.py",
+    "src/one_ring_sdk/services/async_/book.py",
+    "src/one_ring_sdk/services/async_/character.py",
+    "src/one_ring_sdk/services/async_/movie.py",
+    "src/one_ring_sdk/services/async_/quote.py",
+    "src/one_ring_sdk/sdk_async.py",
+    "src/one_ring_sdk/models/utils/sentinel.py",
+    "src/one_ring_sdk/models/get_books_sort.py",
+    "src/one_ring_sdk/models/order.py",
+    "src/one_ring_sdk/models/get_movies_sort.py",
+    "src/one_ring_sdk/models/book_list_response.py",
+    "src/one_ring_sdk/models/book_response.py",
+    "src/one_ring_sdk/models/character_list_response.py",
+    "src/one_ring_sdk/models/character_response.py",
+    "src/one_ring_sdk/models/movie_list_response.py",
+    "src/one_ring_sdk/models/movie_response.py",
+    "src/one_ring_sdk/models/quote_list_response.py",
+    "src/one_ring_sdk/models/quote_response.py",
+    "src/one_ring_sdk/models/book.py",
+    "src/one_ring_sdk/models/character.py",
+    "src/one_ring_sdk/models/movie.py",
+    "src/one_ring_sdk/models/quote.py",
+    "src/one_ring_sdk/services/book.py",
+    "src/one_ring_sdk/services/character.py",
+    "src/one_ring_sdk/services/movie.py",
+    "src/one_ring_sdk/services/quote.py",
+    "documentation/services/BookService.md",
+    "documentation/services/CharacterService.md",
+    "documentation/services/MovieService.md",
+    "documentation/services/QuoteService.md",
+    "src/one_ring_sdk/models/error.py",
+    "README.md",
+    "PyPI_README.md"
+  ]
+}
