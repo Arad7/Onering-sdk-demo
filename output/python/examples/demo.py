@@ -3,7 +3,6 @@ from one_ring_sdk.net.transport.api_error import ApiError
 import time
 
 
-
 def fetch_item(resource_name, get_function):
     """Fetches a resource by ID """
 
@@ -12,7 +11,7 @@ def fetch_item(resource_name, get_function):
     if not item_id.isdigit() or int(item_id) <= 0:
         print("Invalid ID. Please enter a positive integer.\n")
         return
-    
+
     print(f"\nFetching {resource_name} with ID: {item_id}\n")
     try:
         result = get_function(item_id)
@@ -38,6 +37,7 @@ def fetch_item(resource_name, get_function):
             except ApiError as retry_e:
                 print(f"Retry also failed with status {retry_e.status}")
                 print("Server error - there is an issue with the API.")
+
         print(f"\n{e}\n")
 
     except Exception as e:
@@ -63,6 +63,4 @@ if __name__ == "__main__":
         elif choice == "3":
             break
         else:
-            print("Invalid choice. Please enter 1, 2 or 3.")
-        
-    
+            print(f"Invalid choice. Please enter 1, 2 or 3.\n")
