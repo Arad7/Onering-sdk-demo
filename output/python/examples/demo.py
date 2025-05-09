@@ -28,7 +28,16 @@ def fetch_item(resource_name, get_function):
         elif e.status == 404:
             print(f"{resource_name.capitalize()} not found in the database.")
         elif e.status == 500:
-            print("Server error - there is an issue with the API.")
+            print("Server error - retrying..")
+            time.sleep(1)
+            try:
+                result = get_function(item_id)
+                print("Retry succeeded:")
+                print(result)
+                return
+            except ApiError as retry_e:
+                print(f"Retry also failed with status {retry_e.status}")
+                print("Server error - there is an issue with the API.")
         print(f"\n{e}\n")
 
     except Exception as e:
