@@ -44,14 +44,17 @@ def fetch_item(resource_name, get_function):
         print(f"Unexpected error while fetching {resource_name.capitalize()} with id - {item_id}.\nException message: {str(e)}\n")
 
 if __name__ == "__main__":
+    print("="*50)
     print("Welcome to the One Ring API Demo!")
+    print("="*50)
     while True:
         print("What would you like to fetch?")
         print("[1] Book by ID")
         print("[2] Movie by ID")
-        print("[3] To exit the program")
+        print("[3] Quote by ID")
+        print("[4] To exit the program")
 
-        choice = input("Enter 1, 2 or 3: \n").strip()
+        choice = input("Enter 1, 2, 3 or 4: \n").strip()
 
         # Replace with actual token when working with real APIs
         sdk = OneRingSdk(access_token="YOUR_ACCESS_TOKEN")
@@ -61,6 +64,10 @@ if __name__ == "__main__":
         elif choice == "2":
             fetch_item("movie", sdk.movie.get_movie_by_id)
         elif choice == "3":
+            fetch_item("quote", sdk.quote.get_quote_by_id)
+        elif choice == "4":
             break
         else:
             print(f"Invalid choice. Please enter 1, 2 or 3.\n")
+
+    print("\nThank you for reviewing! – Gal Arad")
