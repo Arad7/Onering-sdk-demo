@@ -14,7 +14,7 @@ This demo focuses on correct structure and graceful error handling.
 2. Install the generated SDK:
    ```
    pip install ./output/python
-3. Go to examples folder and run the demo:
+3. Go to the examples folder and run the demo:
    ```
    cd output/python/examples
    python demo.py
@@ -24,7 +24,7 @@ This demo focuses on correct structure and graceful error handling.
 
 * Initializing the SDK with authentication
 
-* Making API calls to get_<resource>_by_id()
+* Making API calls to `get_<resource>_by_id()`
 
 * Gracefully handling of expected errors:
    - 400 – Bad request
@@ -34,7 +34,7 @@ This demo focuses on correct structure and graceful error handling.
 
 The app uses clean CLI output and handles both developer and user experience thoughtfully.
 
-## How to integret with the application:
+## How to integrate with the application:
 Upon running the program, a menu will appear asking which resource you'd like to fetch:
    ```
    What would you like to fetch?
@@ -42,7 +42,7 @@ Upon running the program, a menu will appear asking which resource you'd like to
    [2] Movie by ID
    [3] Quote by ID
    [4] To exit the program
-   Enter 1, 2, 3 or 4:
+   Enter 1, 2, 3, or 4:
    ```
 
 * If you enter an invalid choice, the app will notify you and prompt again.
